@@ -14,4 +14,13 @@ Step 5: Make a File inside \backend\
         touch server.js
 step 6: change "type" in package.json to "module"; for using ES6 syntax.
 
-
+Step 7: After Setting-up with express, nodemon. It's time for mongoDB.
+	MongoDB is for beginners, with no schema. Since, we will be learning Real - life Projects, we will jump to use mongoose. 
+       Mongoose is similiar to mongodb Driver but more advance with maintaining schema.
+              npm install mongoose@7.0.3
+
+Step 8: Create a .env file, that will work as an environment variable, you may access keys and Values as:
+       process.env.<KEY_NAME>
+
+Step 9: Define a Schema and use it to perform a CRUD Operation via Controllers.
+
