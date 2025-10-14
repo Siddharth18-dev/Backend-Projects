@@ -58,3 +58,33 @@ export async function UpdateWholeDocument(req, res) {
     //}   
 };
 
+export async function UpdatePartialDocument(req, res) {
+    try {
+        const { id } = req.params;
+        const updates = req.body;
+        const updatedData = await Samplemodel.findByIdAndUpdate(id, updates, { new: true });
+        if (!updatedData) {
+            return res.status(404).json({ message: "Data not found" });
+        }
+        res.status(200).json({ message: "Data updated successfully", data: updatedData });
+    } catch (error) {
+        console.error("ERROR 500: Internal Server Error\n", error);
+        res.status(500).json({ message: "Internal Server Error" });
+    }
+};
+
+export async function DeleteDocument(req, res) {
+    try {
+        const { id } = req.params;
+        const deletedData = await Samplemodel.findByIdAndDelete(id);
+        if (!deletedData) {
+            return res.status(404).json({ message: "Data not found" });
+        }
+        res.status(200).json({ message: "Data deleted successfully", data: deletedData });
+    } catch (error) {
+        console.error("ERROR 500: Internal Server Error\n", error);
+        res.status(500).json        
+        ({ message: "Internal Server Error" });
+    }
+};  
+
